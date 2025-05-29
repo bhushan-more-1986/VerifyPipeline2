@@ -10,7 +10,7 @@ variables:
   buildConfiguration: 'Release'
 
 jobs:
-  - job: 'job-1'
+  - job: 'somejob'
     timeoutInMinutes: 10
     
     pool:
