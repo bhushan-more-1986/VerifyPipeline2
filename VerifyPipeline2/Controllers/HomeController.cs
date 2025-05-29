@@ -11,6 +11,8 @@ namespace VerifyPipeline2.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+
+            //commnt
         }
 
         public IActionResult Index()
