@@ -6,12 +6,17 @@
 trigger: 
   - master
 
-pool:
-  vmImage: ubuntu-latest
-
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+jobs:
+  - job: 'job-1'
+    timeoutInMinutes: 10
+    
+    pool:
+     vmImage: ubuntu-latest
+    
+    steps:
+        - bash: echo "step executing bash command"
+        - script: dotnet build --configuration $(buildConfiguration)
+          displayName: 'dotnet build $(buildConfiguration)'
