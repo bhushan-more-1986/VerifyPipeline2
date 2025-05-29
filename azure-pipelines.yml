@@ -17,17 +17,18 @@ stages:
         vmImage: 'windows-latest'
       steps:
       - script: echo hello from Windows
-    - job: macOS
-      pool:
-        vmImage: 'macOS-latest'
-      steps:
-      - script: echo hello from macOS
-    - job: Linux
-      pool:
-        vmImage: 'ubuntu-latest'
-     
+
  - stage: StageTwo
    jobs:
      - job: "JobC"
        steps:
          - bash: echo "executing bash command"
+ 
+ - stage: StageThree
+   dependsOn: 
+   - StageOne
+   - StageTwo
+   jobs:
+    - job : JobD
+      steps:    
+        - bash: echo "executing bash command"
