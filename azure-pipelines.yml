@@ -10,9 +10,9 @@ variables:
   buildConfiguration: 'Release'
 
 stages: 
- - stage: StageA
+ - stage: StageOne
    jobs:
-    - job: 'SomejobA'
+    - job: 'JobA'
       timeoutInMinutes: 10
       pool:
        vmImage: ubuntu-latest
@@ -21,11 +21,11 @@ stages:
        - script: dotnet build --configuration $(buildConfiguration)
          displayName : 'dotnet build $(buildConfiguration)'
 
-    - job: 'nextjob'
+    - job: 'JobB'
       steps:
         - bash: echo "executing next job"
- - stage: StageB
+ - stage: StageTwo
    jobs:
-     - job: "SomejobB"
+     - job: "JobC"
        steps:
          - bash: echo "executing bash command"
