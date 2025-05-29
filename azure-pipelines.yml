@@ -12,18 +12,20 @@ variables:
 stages: 
  - stage: StageOne
    jobs:
-    - job: 'JobA'
-      timeoutInMinutes: 10
+    - job: Windows
       pool:
-       vmImage: ubuntu-latest
-      steps: 
-       - bash: echo "step executing bash command"
-       - script: dotnet build --configuration $(buildConfiguration)
-         displayName : 'dotnet build $(buildConfiguration)'
-
-    - job: 'JobB'
+        vmImage: 'windows-latest'
       steps:
-        - bash: echo "executing next job"
+      - script: echo hello from Windows
+    - job: macOS
+      pool:
+        vmImage: 'macOS-latest'
+      steps:
+      - script: echo hello from macOS
+    - job: Linux
+      pool:
+        vmImage: 'ubuntu-latest'
+     
  - stage: StageTwo
    jobs:
      - job: "JobC"
