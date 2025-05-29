@@ -9,26 +9,19 @@ trigger:
 variables:
   buildConfiguration: 'Release'
 
-stages: 
- - stage: StageOne
-   jobs:
-    - job: Windows
-      pool:
-        vmImage: 'windows-latest'
-      steps:
-      - script: echo hello from Windows
-
- - stage: StageTwo
-   jobs:
-     - job: "JobC"
-       steps:
-         - bash: echo "executing bash command"
- 
- - stage: StageThree
-   dependsOn: 
-   - StageOne
-   - StageTwo
-   jobs:
-    - job : JobD
-      steps:    
-        - bash: echo "executing bash command"
+stages:
+- stage: Development
+  displayName: Deploy to development
+  jobs:
+  - job: DeployJob
+    steps:
+    - script: echo 'hello, world'
+      displayName: 'Run script'
+- stage: Production
+  displayName: Deploy to production
+  trigger: manual
+  jobs:
+  - job: DeployJob
+    steps:
+    - script: echo 'hello, world'
+      displayName: 'Run script'
