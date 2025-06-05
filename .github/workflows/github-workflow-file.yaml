@@ -15,11 +15,13 @@ jobs:
    - run: echo The name of branch is ${{ github.ref }} and repository ${{ github.repository }}
 
    #Checkout repository code
-   - uses: actions/checkout@v4
+   - uses: actions/checkout@v2
 
-   #run: ${{github.repository}} has been clone to runner
-
-   - run: list of files in repository 
+   - run: echo Repository ${{github.repository}} has been clone to runner
+ 
+   - run: echo Repository- ${{github.repository}} has be copied to path- ${{ github.workspace }} on runner
+   
+   - name: list of files in repository 
        ls ${{github.workplace}}
        
    - run: Workflow now ready to test code
