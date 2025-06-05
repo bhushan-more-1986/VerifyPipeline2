@@ -22,8 +22,9 @@ jobs:
  
    - run: echo "Repository ${{ github.repository }} has be copied to path- ${{ github.workspace }} on runner"
    
-   #- name: list of files in repository 
-   #- run:  ls ${{ github.workplace }}
+   - name: list of files in repository 
+   - run: |
+       ls ${{ github.workplace }}
        
    - run: echo Workflow now ready to test code
 
