@@ -7,6 +7,20 @@ jobs:
   steps:
    #Display the event that trigger the workflow
    - run: 'echo The job was trigger by ${{ github.event_name }}'
+
+   #Runner information
+   - run: echo This job is now running on a ${{ runner.os }} server hosted by github
+
+   #Information about repository and branch
+   - run: echo The name of branch is ${{ github.ref }} and repository ${{ github.repository }}
+
+   #Checkout repository code
+   - uses: actions/checkout@v4
+
+   - run: ${{github.repository}} has been clone to runner
+
+   - run: Repository has been clone to path ${{github.workplace}}
+   - run: Workflow now ready to test code
+
    
- 
  
