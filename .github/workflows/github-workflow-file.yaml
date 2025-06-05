@@ -20,12 +20,12 @@ jobs:
 
    - run: echo Repository ${{github.repository}} has been clone to runner
  
-   - run: echo Repository- ${{github.repository}} has be copied to path- ${{ github.workspace }} on runner
+   - run: echo Repository ${{github.repository}} has be copied to path- ${{ github.workspace }} on runner
    
    #- name: list of files in repository 
    #- run:  ls ${{ github.workplace }}
        
-   - run: Workflow now ready to test code
+   - run: echo Workflow now ready to test code
 
    
  
