@@ -19,7 +19,8 @@ jobs:
 
    - run: ${{github.repository}} has been clone to runner
 
-   - run: Repository has been clone to path ${{github.workplace}}
+   - run: Repository has been clone to path 
+       ls ${{github.workplace}}
    - run: Workflow now ready to test code
 
    
